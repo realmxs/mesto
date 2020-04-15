@@ -2,7 +2,7 @@
     background-image: url('../../images/like-button.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     width: 20px;
