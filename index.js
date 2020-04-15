@@ -15,7 +15,7 @@ let subtitle = profileSubtitle.textContent;
 /* open popup */
 
 function openPopup () {
-    popup.classList.add('popup-show');
+    popup.classList.add('popup_opened');
     popupTextTitle.setAttribute('value', title);
     popupTextSubtitle.setAttribute('value', subtitle);
 };
@@ -26,7 +26,7 @@ editButton.addEventListener('click', openPopup);
 /* close popup */
 
 function closePopup () {
-    popup.classList.remove('popup-show');
+    popup.classList.remove('popup_opened');
 };
 
 closeButton.addEventListener('click', closePopup);
@@ -40,7 +40,7 @@ function formSubmit (submit) {
     let newSubtitle = popupTextSubtitle.value;
     profileTitle.textContent = newTitle;
     profileSubtitle.textContent = newSubtitle;
-    popup.classList.remove('popup-show');
+    popup.classList.remove('popup_opened');
 }
 
 submit.addEventListener('click', formSubmit);
