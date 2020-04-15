@@ -1,0 +1,15 @@
+@import url('./__image/element__image.css');
+@import url('./__info/element__info.css');
+@import url('');
+@import url('');
+@import url('');
+
+.element {
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s ease-in-out;
+}
+
+.element:hover {
+  transform: scale(1.05);
+}
