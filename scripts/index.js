@@ -28,7 +28,7 @@ function formSubmit (submit) {
     submit.preventDefault();
     profileTitle.textContent = popupTextTitle.value;
     profileSubtitle.textContent = popupTextSubtitle.value;
-    popup.classList.remove('popup_opened');
+    closePopup ();
 }
 
 /* listeners */
