@@ -1,4 +1,4 @@
-.text-input {
+.input__title {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -10,11 +10,7 @@
     box-sizing: border-box;
     margin-bottom: 30px;
   }
-  
-  .text-input:last-of-type {
-    margin-bottom: 45px;
-  }
 
-  .text-input::placeholder {
+.input__title::placeholder {
     color: #d3d3d3;
   }

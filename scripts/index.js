@@ -4,24 +4,17 @@ const profileTitle = profile.querySelector('.profile__title');
 const profileSubtitle = profile.querySelector('.profile__subtitle');
 const popup = document.querySelector('.popup');
 const closeButton = popup.querySelector('.close-button');
-const popupTextTitle = popup.querySelector('.input__text_title');
-const popupTextSubtitle = popup.querySelector('.input__text_subtitle');
+const popupTextTitle = popup.querySelector('.input__title');
+const popupTextSubtitle = popup.querySelector('.input__subtitle');
 const submit = popup.querySelector('.submit-button');
-
-let title = profileTitle.textContent;
-let subtitle = profileSubtitle.textContent;
-
 
 /* open popup */
 
-function openPopup () {
+function openPopup () { 
+    popupTextTitle.value = profileTitle.textContent; 
+    popupTextSubtitle.value = profileSubtitle.textContent; 
     popup.classList.add('popup_opened');
-    popupTextTitle.setAttribute('value', title);
-    popupTextSubtitle.setAttribute('value', subtitle);
-};
-
-editButton.addEventListener('click', openPopup);
-
+ };
 
 /* close popup */
 
@@ -29,18 +22,17 @@ function closePopup () {
     popup.classList.remove('popup_opened');
 };
 
-closeButton.addEventListener('click', closePopup);
-
-
 /* submit */
 
 function formSubmit (submit) {
     submit.preventDefault();
-    let newTitle = popupTextTitle.value;
-    let newSubtitle = popupTextSubtitle.value;
-    profileTitle.textContent = newTitle;
-    profileSubtitle.textContent = newSubtitle;
+    profileTitle.textContent = popupTextTitle.value;
+    profileSubtitle.textContent = popupTextSubtitle.value;
     popup.classList.remove('popup_opened');
 }
 
+/* listeners */
+
+editButton.addEventListener('click', openPopup);
+closeButton.addEventListener('click', closePopup);
 submit.addEventListener('click', formSubmit);

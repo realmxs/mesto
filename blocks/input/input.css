@@ -1,0 +1,12 @@
+@import url('./__title/input__title.css');
+@import url('./__subtitle/input__subtitle.css');
+
+.input {
+    margin-bottom: 48px;
+}
+
+@media screen and (max-width: 700px) {
+    .input {
+        margin-bottom: 30px;
+    }
+}
