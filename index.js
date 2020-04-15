@@ -1,15 +1,15 @@
-let profile = document.querySelector('.profile');
-let editButton = profile.querySelector('.edit-button');
-let profileTitle = profile.querySelector('.profile__title');
-let profileSubtitle = profile.querySelector('.profile__subtitle');
-let popup = document.querySelector('.popup');
-let closeButton = popup.querySelector('.close-button');
-let popupTextTitle = popup.querySelector('.input__text_title');
-let popupTextSubtitle = popup.querySelector('.input__text_subtitle');
-let submit = popup.querySelector('.submit-button');
+const profile = document.querySelector('.profile');
+const editButton = profile.querySelector('.edit-button');
+const profileTitle = profile.querySelector('.profile__title');
+const profileSubtitle = profile.querySelector('.profile__subtitle');
+const popup = document.querySelector('.popup');
+const closeButton = popup.querySelector('.close-button');
+const popupTextTitle = popup.querySelector('.input__text_title');
+const popupTextSubtitle = popup.querySelector('.input__text_subtitle');
+const submit = popup.querySelector('.submit-button');
 
-const title = profileTitle.textContent;
-const subtitle = profileSubtitle.textContent;
+let title = profileTitle.textContent;
+let subtitle = profileSubtitle.textContent;
 
 
 /* open popup */
