@@ -1,20 +1,28 @@
 const profile = document.querySelector('.profile');
-const editButton = profile.querySelector('.edit-button');
+const profileEditButton = profile.querySelector('.profile-edit-button');
 const profileTitle = profile.querySelector('.profile__title');
 const profileSubtitle = profile.querySelector('.profile__subtitle');
-const editPopup = document.querySelector('#edit-popup');
-const popupTextTitle = editPopup.querySelector('.input__title');
-const popupTextSubtitle = editPopup.querySelector('.input__subtitle');
-const saveInfo = editPopup.querySelector('.save-button');
-const addButton = profile.querySelector('.add-button');
+const profileEditPopup = document.querySelector('#profile-edit-popup');
+const inputProfileTitle = profileEditPopup.querySelector('.input__profile-title');
+const inputProfileSubtitle= profileEditPopup.querySelector('.input__profile-subtitle');
+const saveProfile = profileEditPopup.querySelector('#save-edit-profile-popup');
+const closeEditProfile = document.querySelector('#close-editprofile');
+
+const postPopupButton = profile.querySelector('.post-popup-button');
 const postPopup = document.querySelector('#post-popup');
-const postButton = postPopup.querySelector('.post-button');
-const card = document.querySelector('#photo-card').content;
+const postPicButton = postPopup.querySelector('.post-pic-button');
+const closePostPopupButton = document.querySelector('#close-postpopup');
+
 const elements = document.querySelector('.elements');
+const card = document.querySelector('#photo-card').content;
+
 const picPopup = document.querySelector('#pic-popup');
 const closePicPopupButton = document.querySelector('#close-picpopup');
-const closeEditPopupButton = document.querySelector('#close-editpopup');
-const closePostPopupButton = document.querySelector('#close-postpopup');
+const inputPicTitle =  postPopup.querySelector('.input__pic-title');
+const inputPicLink = postPopup.querySelector('.input__pic-link');
+const popupImageTitle = picPopup.querySelector('.popup__image-title');
+const popupImage = picPopup.querySelector('.popup__image');
+
 const defaultCards = [
     {
         name: 'Архыз',
@@ -44,96 +52,94 @@ const defaultCards = [
 
 
 
-/*CARDS RENDER*/
-function cardsRender(name, link) {
+function likeCard(evt) {
+    evt.target.classList.toggle('like-button');
+    evt.target.classList.toggle('like-button_clicked');
+};
+
+
+function deleteCard(evt) {
+    evt.target.parentElement.remove();
+    evt.target.parentElement.querySelector('.like-button').removeEventListener('click', likeCard);
+    evt.target.parentElement.querySelector('.delete-button').removeEventListener('click', deleteCard);
+    evt.target.parentElement.querySelector('.element__image').removeEventListener('click', openPicPopup);
+};
+
+
+function cardRender(name, link) {
     const element = card.cloneNode(true);
     element.querySelector('.element__title').textContent = name;
     element.querySelector('.element__image').src = link;
-
     /* like button */
-    element.querySelector('.like-button').addEventListener('click', function (evt) {
-        evt.target.classList.toggle('like-button');
-        evt.target.classList.toggle('like-button_clicked');
-    });
+    element.querySelector('.like-button').addEventListener('click', likeCard);
     /* delete button */
-    element.querySelector('.delete-button').addEventListener('click', function (evt) {
-        evt.target.parentElement.remove();
-    });
+    element.querySelector('.delete-button').addEventListener('click', deleteCard);
     /* show pic */
-    element.querySelector('.element__image').addEventListener('click', openPicPopup);
+    element.querySelector('.element__image').addEventListener('click', () => openPicPopup(name, link));
 
     return element;
 }
 
 
-
-/*DEFAULT CARDS RENDER*/
 function renderDefaultCards() {
     defaultCards.forEach(function (item) {
-        elements.append(cardsRender(item.name, item.link));
-        return elements;
+        elements.append(cardRender(item.name, item.link));
     });
 };
 
-renderDefaultCards();
+
+function togglePopup (popup) {
+    popup.classList.toggle('popup_opened');
+};
 
 
-
-/* PIC POPUP */
-function openPicPopup(evt) {
-    picPopup.classList.add('popup_opened');
-    picPopup.querySelector('.popup__image-title').textContent = evt.target.parentElement.textContent;
-    picPopup.querySelector('.popup__image').src = evt.target.src;
-    closePicPopupButton.addEventListener('click', closePicPopup);    
-}
-
-function closePicPopup() {
-    picPopup.classList.remove('popup_opened');
-}
-
-
-
-/* EDIT POPUP */
-function openEditPopup () {
-    popupTextTitle.value = profileTitle.textContent;
-    popupTextSubtitle.value = profileSubtitle.textContent;
-    editPopup.classList.add('popup_opened');
+function openProfileEditPopup() {
+    inputProfileTitle.value = profileTitle.textContent;
+    inputProfileSubtitle.value = profileSubtitle.textContent;
+    togglePopup(profileEditPopup);
  };
- editButton.addEventListener('click', openEditPopup);
 
-function closeEditPopup () {
-    editPopup.classList.remove('popup_opened');
-};
-closeEditPopupButton.addEventListener('click', closeEditPopup);
 
-function editFormSubmit (submit) {
-    submit.preventDefault();
-    profileTitle.textContent = popupTextTitle.value;
-    profileSubtitle.textContent = popupTextSubtitle.value;
-    closeEditPopup ();
+function openPicPopup(name, link) {
+    popupImageTitle.textContent = name;
+    popupImage.src = link;
+    popupImage.alt = name;
+    togglePopup(picPopup);
 }
-saveInfo.addEventListener('click', editFormSubmit);
 
 
+function closePostPopup() {
+    inputPicTitle.value = '';
+    inputPicLink.value = '';
+    togglePopup(postPopup);
+}
 
-/* POST POPUP */
-function openPostPopup () {
-    postPopup.classList.add('popup_opened');
-};
-addButton.addEventListener('click', openPostPopup);
 
-function closePostPopup () {
-    postPopup.querySelector('.input__pic-title').value = '';
-    postPopup.querySelector('.input__pic-link').value = '';
-    postPopup.classList.remove('popup_opened');
-};
+function profileEditPopupSubmit (evt) {
+    evt.preventDefault();
+    profileTitle.textContent = inputProfileTitle.value;
+    profileSubtitle.textContent = inputProfileSubtitle.value;
+    togglePopup (profileEditPopup);
+}
+
+
+function newPost(evt) {
+    evt.preventDefault();
+    const name = inputPicTitle.value;
+    const link = inputPicLink.value;
+    elements.prepend(cardRender(name, link));
+    closePostPopup();
+}
+
+
+postPopup.addEventListener('submit', newPost);
+profileEditPopup.addEventListener('submit', profileEditPopupSubmit);
+
+profileEditButton.addEventListener('click', () => openProfileEditPopup());
+postPopupButton.addEventListener('click', () => togglePopup(postPopup));
+
+closeEditProfile.addEventListener('click', () => togglePopup(profileEditPopup));
 closePostPopupButton.addEventListener('click', closePostPopup);
+closePicPopupButton.addEventListener('click', () => togglePopup(picPopup));
 
-function newPost() {
-    let name = postPopup.querySelector('.input__pic-title').value;
-    let link = postPopup.querySelector('.input__pic-link').value;
-    const element = card.cloneNode(true);
-    elements.prepend(cardsRender(name, link));
-    closePostPopup ();
-}
-postButton.addEventListener('click', newPost);
+renderDefaultCards();

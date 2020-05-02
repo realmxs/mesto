@@ -6,6 +6,9 @@
 
 .popup {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -16,10 +19,3 @@
     transition: 0.25s linear;
 }
 
-.popup_opened {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: visible;
-    opacity: 1;
-  }

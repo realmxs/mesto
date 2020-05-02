@@ -1,4 +1,4 @@
-.edit-button {
+.profile-edit-button {
     background-image: url('../../images/edit-button.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -11,12 +11,12 @@
     transition: 0.2s linear;
   }
 
-  .edit-button:hover {
-    opacity: 0.7;
+  .profile-edit-button:hover {
+    opacity: 0.55;
   }
   
   @media screen and (max-width: 700px) {
-    .edit-button {
+    .profile-edit-button {
       width: 18px;
     height: 18px;
     }
