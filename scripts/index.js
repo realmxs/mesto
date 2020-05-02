@@ -82,11 +82,8 @@ function cardRender(name, link) {
 
 
 function renderDefaultCards() {
-    defaultCards.forEach(function (item) {
-        elements.append(cardRender(item.name, item.link));
-    });
+    defaultCards.forEach((item) => elements.append(cardRender(item.name, item.link)))
 };
-
 
 function togglePopup (popup) {
     popup.classList.toggle('popup_opened');
