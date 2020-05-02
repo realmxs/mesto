@@ -14,5 +14,7 @@
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/profile-pic/profile-pic.css');
 @import url('../blocks/profile/profile.css');
-@import url('../blocks/submit-button/submit-button.css');
+@import url('../blocks/post-button/post-button.css');
+@import url('../blocks/save-button/save-button.css');
+@import url('../blocks/delete-button/delete-button.css');
 @import url('../blocks/input/input.css');

@@ -1,5 +1,7 @@
 @import url('./__title/input__title.css');
 @import url('./__subtitle/input__subtitle.css');
+@import url('./__pic-title/input__pic-title.css');
+@import url('./__pic-link/input__pic-link.css');
 
 .input {
     margin-bottom: 48px;

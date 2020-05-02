@@ -2,13 +2,9 @@
 @import url('./__info/element__info.css');
 @import url('./__title/element__title.css');
 
-
 .element {
+  position: relative;
   display: flex;
   flex-direction: column;
-  transition: 0.4s ease-in-out;
-}
-
-.element:hover {
-  transform: scale(1.05);
+  cursor: pointer;
 }

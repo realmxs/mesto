@@ -1,7 +1,5 @@
-@import url('./__clicked/like-button_clicked.css');
-
-.like-button {
-    background-image: url('../../images/like-button.svg');
+.like-button_clicked {
+    background-image: url('../../../images/like-button_clicked.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
