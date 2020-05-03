@@ -129,8 +129,8 @@ function newPost(evt) {
 }
 
 
-postPopup.addEventListener('submit', newPost);
 profileEditPopup.addEventListener('submit', profileEditPopupSubmit);
+postPopup.addEventListener('submit', newPost);
 
 profileEditButton.addEventListener('click', () => openProfileEditPopup());
 postPopupButton.addEventListener('click', () => togglePopup(postPopup));
