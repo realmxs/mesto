@@ -119,7 +119,7 @@ function newCardRelease(evt) {
   cardsContainer.prepend(createCard(name, link));
   inputCardTitle.value = '';
   inputCardLink.value = '';
-  togglePopup(NewCardPopup);
+  togglePopup(newCardPopup);
 }
 
 
