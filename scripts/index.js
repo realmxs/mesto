@@ -10,16 +10,16 @@ const closeEditProfile = document.querySelector('#close-editprofile');
 
 const postPopupButton = profile.querySelector('.post-popup-button');
 const postPopup = document.querySelector('#post-popup');
+const inputPicTitle =  postPopup.querySelector('.input__pic-title');
+const inputPicLink = postPopup.querySelector('.input__pic-link');
 const postPicButton = postPopup.querySelector('.post-pic-button');
-const closePostPopupButton = document.querySelector('#close-postpopup');
+const closePostPopupButton = postPopup.querySelector('#close-postpopup');
 
 const elements = document.querySelector('.elements');
 const card = document.querySelector('#photo-card').content;
 
 const picPopup = document.querySelector('#pic-popup');
-const closePicPopupButton = document.querySelector('#close-picpopup');
-const inputPicTitle =  postPopup.querySelector('.input__pic-title');
-const inputPicLink = postPopup.querySelector('.input__pic-link');
+const closePicPopupButton = picPopup.querySelector('#close-picpopup');
 const popupImageTitle = picPopup.querySelector('.popup__image-title');
 const popupImage = picPopup.querySelector('.popup__image');
 
