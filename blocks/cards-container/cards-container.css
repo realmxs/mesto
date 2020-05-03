@@ -1,0 +1,25 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto 60px;
+}
+
+@media screen and (max-width: 980px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 280px);
+    grid-template-rows: repeat(3, 1fr);
+    max-width: calc(2 * 280px + 20px);
+    margin-bottom: 48px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cards-container {
+    grid-template-columns: repeat(1, 280px);
+    grid-template-rows: repeat(6, 1fr);
+    max-width: 280px;
+  }
+}
