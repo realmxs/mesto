@@ -59,10 +59,10 @@ function likeCard(evt) {
 
 
 function deleteCard(evt) {
-    evt.target.parentElement.remove();
     evt.target.parentElement.querySelector('.like-button').removeEventListener('click', likeCard);
     evt.target.parentElement.querySelector('.delete-button').removeEventListener('click', deleteCard);
     evt.target.parentElement.querySelector('.element__image').removeEventListener('click', openPicPopup);
+    evt.target.parentElement.remove();
 };
 
 
