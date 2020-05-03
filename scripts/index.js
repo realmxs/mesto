@@ -21,10 +21,6 @@ const closePicPopupButton = picPopup.querySelector('#close-picpopup');
 const popupImageTitle = picPopup.querySelector('.popup__image-title');
 const popupImage = picPopup.querySelector('.popup__image');
 
-const getCardLikeButton = (card) => card.querySelector('.card__like-button');
-const getCardDeleteButton = (card) => card.querySelector('.card__delete-button');
-const getCardImage = (card) => card.querySelector('.card__image');
-
 const defaultCards = [
     {
         name: 'Архыз',
@@ -51,6 +47,10 @@ const defaultCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
+const getCardLikeButton = (card) => card.querySelector('.card__like-button');
+const getCardDeleteButton = (card) => card.querySelector('.card__delete-button');
+const getCardImage = (card) => card.querySelector('.card__image');
 
 
 function togglePopup (popup) {
