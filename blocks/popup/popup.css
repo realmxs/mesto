@@ -22,5 +22,5 @@
   visibility: hidden;
   opacity: 0;
   transition: .6s ease;
-  transition-delay: 0;  /* transition-delay для фикса бага в Firefox, при котором открытие попапа происходит рывком. */
+  transition-delay: 0;
 }
