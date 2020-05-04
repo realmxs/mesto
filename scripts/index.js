@@ -108,7 +108,7 @@ function createCard(name, link) {
 };
 
 function createDefaultCards() {
-  defaultCards.forEach((item) => cardsContainer.append(createCard(item.name, item.link)))
+  defaultCards.forEach((item) => cardsContainer.append(createCard(item.name, item.link)));
 };
 
 function newCardRelease(evt) {
