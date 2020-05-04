@@ -1,7 +1,7 @@
-@import url('./_save/popup__main-button_save.css');
-@import url('./_submit/popup__main-button_submit.css');
+@import url('./_post/popup__submit-button_post.css');
+@import url('./_save/popup__submit-button_save.css');
 
-.popup__main-button {
+.popup__submit-button {
   background-size: contain;
   background-position: center;
   width: 100%;
@@ -12,12 +12,12 @@
   padding: 0;
 }
 
-.popup__main-button:hover {
+.popup__submit-button:hover {
   opacity: 0.7;
 }
 
 @media screen and (max-width: 700px) {
-  .popup__main-button {
+  .popup__submit-button {
     height: 30px;
   }
 }
