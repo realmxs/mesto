@@ -1,0 +1,23 @@
+@import url('./_save/popup__main-button_save.css');
+@import url('./_submit/popup__main-button_submit.css');
+
+.popup__main-button {
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s linear;
+  padding: 0;
+}
+
+.popup__main-button:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 700px) {
+  .popup__main-button {
+    height: 30px;
+  }
+}
