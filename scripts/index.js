@@ -54,8 +54,8 @@ const getCardImage = (card) => card.querySelector('.card__image');
 
 
 function togglePopup (popup) {
-  setTimeout(popup.classList.toggle('popup_opened'), 5000);  //setTimeout для фикса бага в Firefox, при котором открытие попапа происходит рывком
-}
+  setTimeout(popup.classList.toggle('popup_opened'), 5000);  //setTimeout для фикса бага в Firefox, при котором открытие попапа происходит рывком.
+};
 
 function openProfileEditPopup() {
   inputProfileTitle.value = profileTitle.textContent;
@@ -67,19 +67,18 @@ function openProfileEditPopup() {
   inputCardTitle.value = '';
   inputCardLink.value = '';
   togglePopup(newCardPopup);
-}
+};
 
 function openPicPopup(evt) {
-   popupImageTitle.textContent = evt.target.alt;
-   popupImage.src = evt.target.src;
-   popupImage.alt = evt.target.alt;
-   togglePopup(picPopup);
- }
+  popupImageTitle.textContent = evt.target.alt;
+  popupImage.src = evt.target.src;
+  popupImage.alt = evt.target.alt;
+  togglePopup(picPopup);
+ };
 
 function likeCard(evt) {
   evt.target.classList.toggle('card__like-button_clicked');
 };
-
 
 function deleteCard(evt) {
   const card = evt.target.closest('.card');
@@ -94,7 +93,7 @@ function profileEditPopupSubmit (evt) {
   profileTitle.textContent = inputProfileTitle.value;
   profileSubtitle.textContent = inputProfileSubtitle.value;
   togglePopup (profileEditPopup);
-}
+};
 
 function createCard(name, link) {
   const card = template.cloneNode(true);
@@ -106,7 +105,7 @@ function createCard(name, link) {
   getCardImage(card).addEventListener('click', openPicPopup);
 
   return card;
-}
+};
 
 function createDefaultCards() {
   defaultCards.forEach((item) => cardsContainer.append(createCard(item.name, item.link)))
@@ -120,7 +119,7 @@ function newCardRelease(evt) {
   inputCardTitle.value = '';
   inputCardLink.value = '';
   togglePopup(newCardPopup);
-}
+};
 
 
 profileEditButton.addEventListener('click', openProfileEditPopup);
