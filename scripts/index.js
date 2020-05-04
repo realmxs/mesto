@@ -54,7 +54,7 @@ const getCardImage = (card) => card.querySelector('.card__image');
 
 
 function togglePopup (popup) {
-  setTimeout(popup.classList.toggle('popup_opened'), 5000);  //setTimeout для фикса бага в Firefox, при котором открытие попапа происходит рывком.
+  popup.classList.toggle('popup_opened');
 };
 
 function openProfileEditPopup() {

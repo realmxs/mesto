@@ -21,6 +21,6 @@
   background: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   opacity: 0;
-  transition: 1s ease;
+  transition: .6s ease;
+  transition-delay: 0;  /* transition-delay для фикса бага в Firefox, при котором открытие попапа происходит рывком. */
 }
-
