@@ -49,16 +49,6 @@ const defaultCards = [
     }
 ];
 
-const classList = {
-  formSelector: '.popup__container',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_inactive',
-  inputErrorClass: 'popup__input_error',
-  errorClass: 'popup__error-text_show'
-};
-
-
 const getCardLikeButton = (card) => card.querySelector('.card__like-button');
 const getCardDeleteButton = (card) => card.querySelector('.card__delete-button');
 const getCardImage = (card) => card.querySelector('.card__image');
