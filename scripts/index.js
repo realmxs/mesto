@@ -50,7 +50,7 @@ const defaultCards = [
 ];
 
 const formClassList = {
-  formSelector: '.popup',
+  formSelector: '.popup__container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_inactive',
