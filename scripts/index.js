@@ -55,6 +55,7 @@ const classList = {
   submitButtonSelector: '.popup__submit-button',
   inactiveButtonClass: 'popup__submit-button_inactive',
   inputErrorClass: 'popup__input_error',
+  errorClass: 'popup__error-text_show'
 };
 
 

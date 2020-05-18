@@ -2,10 +2,12 @@ function showInputError(activePopup, input, errorMessage, settings) {
   const inputError = activePopup.querySelector(`#${input.id}-error`);
   input.classList.add(settings.inputErrorClass);
   inputError.textContent = errorMessage;
+  inputError.classList.add(settings.errorClass);
 }
 
 function hideInputError(activePopup, input, settings) {
   const inputError = activePopup.querySelector(`#${input.id}-error`);
+  inputError.classList.remove(settings.errorClass);
   inputError.textContent = '';
   input.classList.remove(settings.inputErrorClass);
 }

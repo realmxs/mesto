@@ -1,4 +1,5 @@
 .popup__error-text {
+  display: none;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
