@@ -2,6 +2,7 @@ const profile = document.querySelector('.profile');
 const profileEditButton = profile.querySelector('.profile__edit-button');
 const profileTitle = profile.querySelector('.profile__title');
 const profileSubtitle = profile.querySelector('.profile__subtitle');
+
 const profileEditPopup = document.querySelector('#profile-edit-popup');
 const inputProfileTitle = profileEditPopup.querySelector('#input-profile-title');
 const inputProfileSubtitle= profileEditPopup.querySelector('#input-profile-subtitle');
@@ -48,13 +49,29 @@ const defaultCards = [
     }
 ];
 
+const formClassList = {
+  formSelector: '.popup',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_inactive',
+  inputErrorClass: 'popup__input_error',
+};
+
+
 const getCardLikeButton = (card) => card.querySelector('.card__like-button');
 const getCardDeleteButton = (card) => card.querySelector('.card__delete-button');
 const getCardImage = (card) => card.querySelector('.card__image');
 
 
-function togglePopup (popup) {
+function togglePopup(popup) {
   popup.classList.toggle('popup_opened');
+};
+
+function closePopup(evt) {
+  const currentPopup = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape' || evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {
+    togglePopup(currentPopup);
+  };
 };
 
 function openProfileEditPopup() {
@@ -121,15 +138,16 @@ function newCardRelease(evt) {
   togglePopup(newCardPopup);
 };
 
+document.addEventListener('keyup', closePopup);
+document.addEventListener('click', closePopup);
+
 
 profileEditButton.addEventListener('click', openProfileEditPopup);
 openNewCardPopupButton.addEventListener('click', openNewCardPopup);
 
-closeEditProfilePopup.addEventListener('click', () => togglePopup(profileEditPopup));
-closeNewCardPopupButton.addEventListener('click', () => togglePopup(newCardPopup));
-closePicPopupButton.addEventListener('click', () => togglePopup(picPopup));
-
 profileEditPopup.addEventListener('submit', profileEditPopupSubmit);
 newCardPopup.addEventListener('submit', newCardRelease);
+
+
 
 createDefaultCards();

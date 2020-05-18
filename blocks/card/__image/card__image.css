@@ -5,3 +5,7 @@
   border-top-right-radius: 10px;
   object-position: center;
 }
+
+.card__image:hover {
+  filter: brightness(1.2);
+}
