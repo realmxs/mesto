@@ -24,7 +24,7 @@ function hasInvalidInput(inputList) {
   })
 };
 
-const toggleButtonState = (inputList, submitButton, settings) => {
+const toggleButtonStatus = (inputList, submitButton, settings) => {
   if (hasInvalidInput(inputList)) {
     submitButton.classList.add(settings.inactiveButtonClass);
     submitButton.setAttribute('disabled', true);
@@ -37,11 +37,11 @@ const toggleButtonState = (inputList, submitButton, settings) => {
 function setEventListeners(activePopup, settings) {
   const inputList = Array.from(activePopup.querySelectorAll(settings.inputSelector));
   const submitButton = activePopup.querySelector(settings.submitButtonSelector);
-  toggleButtonState(inputList, submitButton, settings);
+  toggleButtonStatus(inputList, submitButton, settings);
   inputList.forEach((input) => {
     input.addEventListener('input', () => {
       isValid(activePopup, input, settings);
-      toggleButtonState(inputList, submitButton, settings);
+      toggleButtonStatus(inputList, submitButton, settings);
     });
   });
 };
