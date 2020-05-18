@@ -49,7 +49,7 @@ const defaultCards = [
     }
 ];
 
-const formClassList = {
+const classList = {
   formSelector: '.popup__container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',

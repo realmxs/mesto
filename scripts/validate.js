@@ -1,20 +1,20 @@
-function showInputError(activePopup, input, errorMessage) {
+function showInputError(activePopup, input, errorMessage, settings) {
   const inputError = activePopup.querySelector(`#${input.id}-error`);
-  input.classList.add(formClassList.inputErrorClass);
+  input.classList.add(settings.inputErrorClass);
   inputError.textContent = errorMessage;
 }
 
-function hideInputError(activePopup, input) {
+function hideInputError(activePopup, input, settings) {
   const inputError = activePopup.querySelector(`#${input.id}-error`);
   inputError.textContent = '';
-  input.classList.remove(formClassList.inputErrorClass);
+  input.classList.remove(settings.inputErrorClass);
 }
 
-function isValid(activePopup, input) {
+function isValid(activePopup, input, settings) {
   if (!input.validity.valid) {
-    showInputError(activePopup, input, input.validationMessage);
+    showInputError(activePopup, input, input.validationMessage, settings);
   } else {
-    hideInputError(activePopup, input);
+    hideInputError(activePopup, input, settings);
   }
 };
 
@@ -24,33 +24,33 @@ function hasInvalidInput(inputList) {
   })
 };
 
-const toggleButtonState = (inputList, submitButton) => {
+const toggleButtonState = (inputList, submitButton, settings) => {
   if (hasInvalidInput(inputList)) {
-    submitButton.classList.add(formClassList.inactiveButtonClass);
+    submitButton.classList.add(settings.inactiveButtonClass);
     submitButton.setAttribute('disabled', true);
   } else {
-    submitButton.classList.remove(formClassList.inactiveButtonClass);
+    submitButton.classList.remove(settings.inactiveButtonClass);
     submitButton.removeAttribute('disabled', true);
   }
 };
 
-function setEventListeners(activePopup) {
-  const inputList = Array.from(activePopup.querySelectorAll(formClassList.inputSelector));
-  const submitButton = activePopup.querySelector(formClassList.submitButtonSelector);
-  toggleButtonState(inputList, submitButton);
+function setEventListeners(activePopup, settings) {
+  const inputList = Array.from(activePopup.querySelectorAll(settings.inputSelector));
+  const submitButton = activePopup.querySelector(settings.submitButtonSelector);
+  toggleButtonState(inputList, submitButton, settings);
   inputList.forEach((input) => {
     input.addEventListener('input', () => {
-      isValid(activePopup, input);
-      toggleButtonState(inputList, submitButton);
+      isValid(activePopup, input, settings);
+      toggleButtonState(inputList, submitButton, settings);
     });
   });
 };
 
-const enableValidation = (formClassList) => {
-  const popupList = Array.from(document.querySelectorAll(formClassList.formSelector));
+const enableValidation = (settings) => {
+  const popupList = Array.from(document.querySelectorAll(settings.formSelector));
   popupList.forEach((activePopup) => {
-      setEventListeners(activePopup);
+      setEventListeners(activePopup, settings);
   });
 };
 
-enableValidation(formClassList);
+enableValidation(classList);
