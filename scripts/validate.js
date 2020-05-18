@@ -1,13 +1,3 @@
-const classList = {
-  formSelector: '.popup__container',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit-button',
-  inactiveButtonClass: 'popup__submit-button_inactive',
-  inputErrorClass: 'popup__input_error',
-  errorClass: 'popup__error-text_show'
-};
-
-
 function showInputError(activePopup, input, errorMessage, settings) {
   const inputError = activePopup.querySelector(`#${input.id}-error`);
   input.classList.add(settings.inputErrorClass);
@@ -63,6 +53,4 @@ const enableValidation = (settings) => {
   popupList.forEach((activePopup) => {
       setEventListeners(activePopup, settings);
   });
-};
-
-enableValidation(classList);
+}
