@@ -76,7 +76,7 @@ function closePopup(evt) {
 function openProfileEditPopup() {
   inputProfileTitle.value = profileTitle.textContent;
   inputProfileSubtitle.value = profileSubtitle.textContent;
-  clearFormInputs(profileEditPopup, validationSettings);
+  clearFormErrors(profileEditPopup, validationSettings);
   document.addEventListener('keyup', closePopup);
   togglePopup(profileEditPopup);
  };
@@ -84,7 +84,7 @@ function openProfileEditPopup() {
  function openNewCardPopup() {
   inputCardTitle.value = '';
   inputCardLink.value = '';
-  clearFormInputs(newCardPopup, validationSettings);
+  clearFormErrors(newCardPopup, validationSettings);
   document.addEventListener('keyup', closePopup);
   togglePopup(newCardPopup);
 };

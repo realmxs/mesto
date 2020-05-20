@@ -27,7 +27,6 @@ function hasInvalidInput(inputList) {
 };
 
 const toggleButtonStatus = (inputList, submitButton, settings) => {
-
   if (hasInvalidInput(inputList)) {
     submitButton.classList.add(settings.inactiveButtonClass);
     submitButton.setAttribute('disabled', true);
@@ -37,7 +36,7 @@ const toggleButtonStatus = (inputList, submitButton, settings) => {
   }
 };
 
-function clearFormInputs(currentPopup, settings) {
+function clearFormErrors(currentPopup, settings) {
   const inputList = Array.from(currentPopup.querySelectorAll(settings.inputSelector));
   const submitButton = currentPopup.querySelector(settings.submitButtonSelector);
   inputList.forEach((input) => {
