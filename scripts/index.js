@@ -64,12 +64,6 @@ function togglePopup(popup) {
   popup.classList.toggle('popup_opened');
 };
 
-function clearFormInputs(currentPopup) {
-  const inputList = currentPopup.querySelectorAll(validationSettings.inputSelector);
-  inputList.forEach((input) => {
-    hideInputError(currentPopup, input, validationSettings);
-  });
-}
 
 function closePopup(evt) {
   const currentPopup = document.querySelector('.popup_opened');
@@ -80,17 +74,17 @@ function closePopup(evt) {
 };
 
 function openProfileEditPopup() {
-  clearFormInputs(profileEditPopup);
   inputProfileTitle.value = profileTitle.textContent;
   inputProfileSubtitle.value = profileSubtitle.textContent;
+  clearFormInputs(profileEditPopup, validationSettings);
   document.addEventListener('keyup', closePopup);
   togglePopup(profileEditPopup);
  };
 
  function openNewCardPopup() {
-  clearFormInputs(newCardPopup);
   inputCardTitle.value = '';
   inputCardLink.value = '';
+  clearFormInputs(newCardPopup, validationSettings);
   document.addEventListener('keyup', closePopup);
   togglePopup(newCardPopup);
 };
