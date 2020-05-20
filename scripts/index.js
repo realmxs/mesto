@@ -64,7 +64,8 @@ function togglePopup(popup) {
   popup.classList.toggle('popup_opened');
 };
 
-function clearFormInputs(inputList, currentPopup) {
+function clearFormInputs(currentPopup) {
+  const inputList = currentPopup.querySelectorAll(validationSettings.inputSelector);
   inputList.forEach((input) => {
     hideInputError(currentPopup, input, validationSettings);
   });
@@ -79,8 +80,7 @@ function closePopup(evt) {
 };
 
 function openProfileEditPopup() {
-  const inputList = profileEditPopup.querySelectorAll(validationSettings.inputSelector);
-  clearFormInputs(inputList, profileEditPopup);
+  clearFormInputs(profileEditPopup);
   inputProfileTitle.value = profileTitle.textContent;
   inputProfileSubtitle.value = profileSubtitle.textContent;
   document.addEventListener('keyup', closePopup);
@@ -88,8 +88,7 @@ function openProfileEditPopup() {
  };
 
  function openNewCardPopup() {
-  const inputList = newCardPopup.querySelectorAll(validationSettings.inputSelector);
-  clearFormInputs(inputList, newCardPopup);
+  clearFormInputs(newCardPopup);
   inputCardTitle.value = '';
   inputCardLink.value = '';
   document.addEventListener('keyup', closePopup);
