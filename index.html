@@ -44,11 +44,11 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <fieldset class="popup__fieldset">
           <div class="popup__input-wrapper">
-            <input type="text" placeholder="Имя" type="text" class="popup__input" id="input-profile-title" pattern="[A-Za-zА-Яа-яЁё\s\-]{2,40}" required>
+            <input type="text" placeholder="Имя" type="text" class="popup__input" id="input-profile-title" minlength="2" maxlength="40" pattern="[A-Za-zА-Яа-яЁё\s\-]{1,}" required>
             <span class="popup__error-text" id="input-profile-title-error"></span>
           </div>
           <div class="popup__input-wrapper">
-            <input type="text" placeholder="О себе" type="text" class="popup__input" id="input-profile-subtitle" pattern=".{2,200}" required>
+            <input type="text" placeholder="О себе" type="text" class="popup__input" id="input-profile-subtitle" minlength="2" maxlength="200" required>
             <span class="popup__error-text" id="input-profile-subtitle-error"></span>
           </div>
         </fieldset>
