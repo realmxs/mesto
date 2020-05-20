@@ -27,7 +27,7 @@ function checkPopup(popup, settings) {
   })
 };
 
-const toggleButtonStatus = (popup, settings) => {
+function toggleButtonStatus(popup, settings) {
   const submitButton = popup.querySelector(settings.submitButtonSelector);
   if (checkPopup(popup, settings)) {
     submitButton.classList.add(settings.inactiveButtonClass);
