@@ -12,7 +12,7 @@ export default class Card {
 
     this._onImageClick = onImageClick;
     this._setEventListeners();
-  }
+  };
 
   _getCard(selectors) {
     return document
@@ -20,13 +20,13 @@ export default class Card {
       .content
       .querySelector(selectors.card)
       .cloneNode(true);
-  }
+  };
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', this._like.bind(this));
     this._deleteButton.addEventListener('click', this._delete.bind(this));
     this._image.addEventListener('click', this._onImageClick);
-  }
+  };
 
   _like() {
     this._likeButton.classList.toggle('card__like-button_clicked');
@@ -41,5 +41,5 @@ export default class Card {
 
   getCard() {
     return this._card;
-  }
-}
+  };
+};
