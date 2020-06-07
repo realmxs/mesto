@@ -7,10 +7,6 @@ export default class FormValidator {
 
     this._inputList = this._popup.querySelectorAll(settings.inputSelector);
     this._submitButton = this._popup.querySelector(settings.submitButtonSelector);
-
-    [
-      {inputId: state (bool)}
-    ]
   };
 
   _showInputError(input, errorMessage) {
