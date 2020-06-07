@@ -45,9 +45,9 @@ const defaultCards = [
 ];
 
 const validationSettings = {
-  formSelector: '.popup__container',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',
+
   inactiveButtonClass: 'popup__submit-button_inactive',
   inputErrorClass: 'popup__input_error',
   showErrorClass: 'popup__error-text_show'
