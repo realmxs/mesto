@@ -1,70 +1,71 @@
 export default class FormValidator {
   constructor(popup, settings) {
+    this._popup = popup;
     this._input = settings.inputSelector;
     this._submitButton = settings.submitButtonSelector;
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
-    this._errorClass = settings.errorClass;
-    this._popup = popup;
+    this._showErrorClass = settings.showErrorClass;
   }
 
-  _showInputError(popup, input, errorMessage, settings) {
-    const inputError = popup.querySelector(`#${input.id}-error`);
-    input.classList.add(settings.inputErrorClass);
+  _showInputError(input, errorMessage) {
+    const inputError = this._popup.querySelector(`#${input.id}-error`);
+    input.classList.add(this._inputErrorClass);
     inputError.textContent = errorMessage;
-    inputError.classList.add(settings.errorClass);
+    inputError.classList.add(this._showErrorClass);
   };
 
-  _hideInputError(popup, input, settings) {
-    const inputError = popup.querySelector(`#${input.id}-error`);
-    inputError.classList.remove(settings.errorClass);
+  _hideInputError(input) {
+    const inputError = this._popup.querySelector(`#${input.id}-error`);
+    inputError.classList.remove(this._showErrorClass);
     inputError.textContent = '';
-    input.classList.remove(settings.inputErrorClass);
+    input.classList.remove(this._inputErrorClass);
   };
 
-  _checkInput(popup, input, settings) {
-    if (!input.validity.valid) {
-      this._showInputError(popup, input, input.validationMessage, settings);
+  _checkInput(evt) {
+    if (!evt.target.validity.valid) {
+      this._showInputError(evt.target, evt.target.validationMessage);
     } else {
-      this._hideInputError(popup, input, settings);
+      console.log(evt.target);
+      this._hideInputError(evt.target);
     }
   };
 
-  _checkPopup(popup, settings) {
-    const inputList = Array.from(popup.querySelectorAll(settings.inputSelector));
+  _checkPopup() {
+    const inputList = Array.from(this._popup.querySelectorAll(this._input));
     return inputList.some((input) => {
       return !input.validity.valid;
     })
   };
 
-  _toggleButtonStatus(popup, settings) {
-    const submitButton = popup.querySelector(settings.submitButtonSelector);
-    if (this._checkPopup(popup, settings)) {
-      submitButton.classList.add(settings.inactiveButtonClass);
+  _toggleButtonStatus() {
+    const submitButton = this._popup.querySelector(this._submitButton);
+    if (this._checkPopup()) {
+      submitButton.classList.add(this._inactiveButtonClass);
       submitButton.setAttribute('disabled', true);
     } else {
-      submitButton.classList.remove(settings.inactiveButtonClass);
+      submitButton.classList.remove(this._inactiveButtonClass);
       submitButton.removeAttribute('disabled', true);
     }
   };
 
-  clearFormErrors(popup, settings) {
-    const inputList = popup.querySelectorAll(settings.inputSelector);
+  clearFormErrors() {
+    const inputList = this._popup.querySelectorAll(this._input);
     inputList.forEach((input) => {
-      this._hideInputError(popup, input, settings);
+      this._hideInputError(input);
     });
-    this._toggleButtonStatus(popup, settings);
+    this._toggleButtonStatus();
   };
 
-  enableValidation(popup, settings) {
-    const inputList = popup.querySelectorAll(settings.inputSelector);
+  enableValidation() {
+    const inputList = this._popup.querySelectorAll(this._input);
+    console.log(inputList)
     inputList.forEach((input) => {
-      input.addEventListener('input', () => {
-        this._checkInput(popup, input, settings);
-        this._toggleButtonStatus(popup, settings);
+      input.addEventListener('input', (evt) => {
+        this._checkInput(evt);
+        this._toggleButtonStatus();
       });
     });
-  }
+  };
 };
-
 

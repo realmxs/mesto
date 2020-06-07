@@ -1,62 +1,45 @@
-import { togglePopup, closePopup } from './utility.js'
-
-const picPopup = document.querySelector('#pic-popup');
-const popupImageTitle = picPopup.querySelector('.popup__image-title');
-const popupImage = picPopup.querySelector('.popup__image');
-
 export default class Card {
-  constructor(item) {
-    this._name = item.name;
-    this._link = item.link;
+  constructor(item, selectors, onImageClick) {
+    this._card = this._getCard(selectors);
+    this._likeButton = this._card.querySelector(selectors.likeButton);
+    this._deleteButton = this._card.querySelector(selectors.deleteButton);
+    this._title = this._card.querySelector(selectors.title);
+    this._image = this._card.querySelector(selectors.image);
+
+    this._title.textContent = item.name;
+    this._image.src = item.link;
+    this._image.alt = item.name;
+
+    this._onImageClick = onImageClick;
+    this._setEventListeners();
   }
 
-  _getTemplate() {
-    const template = document
-      .querySelector('#photo-card')
+  _getCard(selectors) {
+    return document
+      .querySelector(selectors.templateId)
       .content
-      .querySelector('.card')
+      .querySelector(selectors.card)
       .cloneNode(true);
-
-    return template;
   }
 
   _setEventListeners() {
-    this._cardLikeButton = this._card.querySelector('.card__like-button');
-    this._cardDeleteButton = this._card.querySelector('.card__delete-button');
-    this._cardImage = this._card.querySelector('.card__image');
-
-    this._cardLikeButton.addEventListener('click', this._likeCard);
-    this._cardDeleteButton.addEventListener('click', this._deleteCard);
-    this._cardImage.addEventListener('click', this._openPicPopup);
+    this._likeButton.addEventListener('click', this._like.bind(this));
+    this._deleteButton.addEventListener('click', this._delete.bind(this));
+    this._image.addEventListener('click', this._onImageClick);
   }
 
-  _openPicPopup(evt) {
-    popupImageTitle.textContent = evt.target.textContent;
-    popupImage.src = evt.target.src;
-    popupImage.alt = evt.target.textContent;
-    document.addEventListener('keyup', closePopup);
-    togglePopup(picPopup);
+  _like() {
+    this._likeButton.classList.toggle('card__like-button_clicked');
   };
 
-  _likeCard(evt) {
-    evt.target.classList.toggle('card__like-button_clicked');
+  _delete() {
+    this._likeButton.removeEventListener('click', this._like);
+    this._deleteButton.removeEventListener('click', this._delete);
+    this._image.removeEventListener('click', this._onImageClick);
+    this._card.remove();
   };
 
-  _deleteCard(evt) {
-    const currentCard = evt.target.closest('.card');
-    currentCard.querySelector('.card__like-button').removeEventListener('click', this._likeCard);
-    currentCard.querySelector('.card__delete-button').removeEventListener('click', this._deleteCard);
-    currentCard.querySelector('.card__image').removeEventListener('click', this._openPicPopup);
-    currentCard.remove();
-  };
-
-  createCard() {
-    this._card = this._getTemplate();
-    this._card.querySelector('.card__title').textContent = this._name;
-    this._card.querySelector('.card__image').src = this._link;
-    this._card.querySelector('.card__image').alt = this._name;
-    this._setEventListeners();
-
+  getCard() {
     return this._card;
   }
 }
