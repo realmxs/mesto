@@ -1,5 +1,7 @@
+import { openPicPopup } from './utils.js';
+
 export default class Card {
-  constructor(item, selectors, onImageClick) {
+  constructor(item, selectors) {
     this._card = this._getCard(selectors);
     this._likeButton = this._card.querySelector(selectors.likeButton);
     this._deleteButton = this._card.querySelector(selectors.deleteButton);
@@ -10,9 +12,8 @@ export default class Card {
     this._image.src = item.link;
     this._image.alt = item.name;
 
-    this._onImageClick = onImageClick;
     this._setEventListeners();
-  };
+  }
 
   _getCard(selectors) {
     return document
@@ -20,26 +21,27 @@ export default class Card {
       .content
       .querySelector(selectors.card)
       .cloneNode(true);
-  };
+  }
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', this._like.bind(this));
     this._deleteButton.addEventListener('click', this._delete.bind(this));
-    this._image.addEventListener('click', this._onImageClick);
-  };
+    this._image.addEventListener('click', openPicPopup);
+  }
 
   _like() {
     this._likeButton.classList.toggle('card__like-button_clicked');
-  };
+  }
 
   _delete() {
     this._likeButton.removeEventListener('click', this._like);
     this._deleteButton.removeEventListener('click', this._delete);
-    this._image.removeEventListener('click', this._onImageClick);
+    this._image.removeEventListener('click', openPicPopup);
     this._card.remove();
-  };
+    this._card = null;
+  }
 
   getCard() {
     return this._card;
-  };
-};
+  }
+}
