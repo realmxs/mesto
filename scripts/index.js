@@ -48,7 +48,6 @@ const defaultCards = [
 const validationSettings = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit-button',
-
   inactiveButtonClass: 'popup__submit-button_inactive',
   inputErrorClass: 'popup__input_error',
   showErrorClass: 'popup__error-text_show'
@@ -92,7 +91,7 @@ function profileEditPopupSubmit (evt) {
 
 function createDefaultCards() {
   defaultCards.forEach(item => {
-    const card = new Card(item, cardSelectors);
+    const card = new Card(item, cardSelectors.card);
     cardsContainer.append(card.getCard())
   })
 }
@@ -101,7 +100,7 @@ function newCardRelease(evt) {
   evt.preventDefault();
   const name = inputCardTitle.value;
   const link = inputCardLink.value;
-  const newCard = new Card({name, link}, cardSelectors);
+  const newCard = new Card({name, link}, cardSelectors.card);
   cardsContainer.prepend(newCard.getCard());
   inputCardTitle.value = '';
   inputCardLink.value = '';

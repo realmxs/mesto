@@ -16,9 +16,9 @@ function closePopup(evt) {
 }
 
 function openPicPopup(evt) {
-  popupImageTitle.textContent = evt.target.textContent;
+  popupImageTitle.textContent = evt.target.alt;
+  popupImage.alt = evt.target.alt;
   popupImage.src = evt.target.src;
-  popupImage.alt = evt.target.textContent;
   document.addEventListener('keyup', closePopup);
   togglePopup(picPopup);
 }
