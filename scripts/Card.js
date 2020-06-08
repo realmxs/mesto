@@ -2,14 +2,14 @@ import { openPicPopup } from './utils.js';
 
 export default class Card {
   constructor(item, cardTemplateSelector) {
-    this._cardSelector = cardTemplateSelector;
+    this._cardTemplateSelector = cardTemplateSelector;
     this._name = item.name;
     this._link = item.link;
   }
 
   _getCard() {
     return document
-      .querySelector(this._cardSelector)
+      .querySelector(this._cardTemplateSelector)
       .content
       .querySelector('.card')
       .cloneNode(true);
