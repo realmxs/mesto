@@ -53,13 +53,8 @@ const validationSettings = {
   showErrorClass: 'popup__error-text_show'
 };
 
-const cardSelectors = {
+const cardtemplateSelector = {
   templateId: '#photo-card',
-  card: '.card',
-  likeButton: '.card__like-button',
-  deleteButton: '.card__delete-button',
-  title: '.card__title',
-  image: '.card__image'
 }
 
 const profileEditPopupValidator = new FormValidator(profileEditPopup, validationSettings);
@@ -91,7 +86,7 @@ function profileEditPopupSubmit (evt) {
 
 function createDefaultCards() {
   defaultCards.forEach(item => {
-    const card = new Card(item, cardSelectors.card);
+    const card = new Card(item, cardtemplateSelector.templateId);
     cardsContainer.append(card.getCard())
   })
 }
@@ -100,7 +95,7 @@ function newCardRelease(evt) {
   evt.preventDefault();
   const name = inputCardTitle.value;
   const link = inputCardLink.value;
-  const newCard = new Card({name, link}, cardSelectors.card);
+  const newCard = new Card({name, link}, cardtemplateSelector.templateId);
   cardsContainer.prepend(newCard.getCard());
   inputCardTitle.value = '';
   inputCardLink.value = '';
