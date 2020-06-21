@@ -91,10 +91,6 @@ function openCardPopup() {
   newCardPopup.openPopup();
 }
 
-profileEditPopup.setEventListeners();
-picPopup.setEventListeners();
-newCardPopup.setEventListeners();
-
 profileEditButton.addEventListener("click", openProfilePopup);
 openNewCardPopupButton.addEventListener("click", openCardPopup);
 
