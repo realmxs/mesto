@@ -6,7 +6,6 @@ export default class PopupWithImage extends Popup {
     const picPopup = document.querySelector(selectors.popup);
     this._title = picPopup.querySelector(selectors.imageTitle);
     this._image = picPopup.querySelector(selectors.image);
-    this.setEventListeners();
   }
 
   openPicPopup(evt) {
