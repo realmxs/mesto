@@ -15,11 +15,6 @@ const newCardPopupElement = document.querySelector("#newcard-popup");
 
 const defaultCards = [
   {
-    title: "Архыз",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
     title: "Челябинская область",
     link:
       "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
@@ -43,6 +38,11 @@ const defaultCards = [
     title: "Байкал",
     link:
       "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+  },
+  {
+    title: "Архыз",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
 ];
 
