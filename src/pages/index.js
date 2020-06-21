@@ -30,7 +30,10 @@ const newCardPopupValidator = new FormValidator(
   validationSettings
 );
 
-const userInfo = new UserInfo(profileSelectors.title, profileSelectors.description);
+const userInfo = new UserInfo({
+  titleSelector: profileSelectors.title,
+  descriptionSelector: profileSelectors.description
+});
 
 const profileEditPopup = new PopupWithForm(
   profileSelectors.popup,
