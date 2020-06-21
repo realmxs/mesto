@@ -25,7 +25,6 @@ const profileEditPopupValidator = new FormValidator(
   profileEditPopupElement,
   validationSettings
 );
-
 const newCardPopupValidator = new FormValidator(
   newCardPopupElement,
   validationSettings
