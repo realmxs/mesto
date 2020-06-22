@@ -45,8 +45,8 @@ const newCardPopup = new PopupWithForm(
   submitCardForm
 );
 
-function handleCardClick(evt) {
-  picPopup.openPicPopup(evt);
+function handleCardClick({ name, link }) {
+  picPopup.openPicPopup({ name, link });
 }
 
 const cardsContainer = new Section(
@@ -58,7 +58,7 @@ const cardsContainer = new Section(
         newCardPopupSelectors.template,
         handleCardClick
       );
-      cardsContainer.addItem(card.getCardElement());
+      cardsContainer.addItem(card.getCardElement(), true);
     },
   },
   containerSelector.container
@@ -70,7 +70,7 @@ function submitCardForm(values) {
     link: values[newCardPopupSelectors.link],
   };
   const card = new Card(data, newCardPopupSelectors.template, handleCardClick);
-  cardsContainer.addItem(card.getCardElement());
+  cardsContainer.addItem(card.getCardElement(), false);
 }
 
 function profileEditPopupSubmit(values) {

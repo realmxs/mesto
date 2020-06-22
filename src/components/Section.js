@@ -11,7 +11,11 @@ export default class Section {
     });
   }
 
-  addItem(card) {
-    this._cardsContainer.prepend(card);
+  addItem(card, isNewCard) {
+    if (isNewCard) {
+      this._cardsContainer.append(card)
+    } else {
+      this._cardsContainer.prepend(card)
+    }
   }
 }

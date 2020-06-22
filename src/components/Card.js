@@ -16,7 +16,12 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", this._like.bind(this));
     this._deleteButton.addEventListener("click", this._delete.bind(this));
-    this._image.addEventListener("click", this._clickOnImage);
+    this._image.addEventListener("click", () => {
+      this._clickOnImage({
+        name: this._name,
+        link: this._link,
+      })
+    });
   }
 
   _like() {
@@ -24,9 +29,6 @@ export default class Card {
   }
 
   _delete() {
-    this._likeButton.removeEventListener("click", this._like);
-    this._deleteButton.removeEventListener("click", this._delete);
-    this._image.removeEventListener("click", this._clickOnImage);
     this._card.remove();
     this._card = null;
   }
