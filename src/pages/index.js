@@ -58,7 +58,7 @@ const cardsContainer = new Section(
         newCardPopupSelectors.template,
         handleCardClick
       );
-      cardsContainer.addItem(card.getCardElement(), true);
+      cardsContainer.addItem(card.getCardElement(), false);
     },
   },
   containerSelector.container
@@ -70,7 +70,7 @@ function submitCardForm(values) {
     link: values[newCardPopupSelectors.link],
   };
   const card = new Card(data, newCardPopupSelectors.template, handleCardClick);
-  cardsContainer.addItem(card.getCardElement(), false);
+  cardsContainer.addItem(card.getCardElement(),true);
 }
 
 function profileEditPopupSubmit(values) {

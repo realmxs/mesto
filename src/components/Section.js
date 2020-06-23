@@ -13,9 +13,9 @@ export default class Section {
 
   addItem(card, isNewCard) {
     if (isNewCard) {
-      this._cardsContainer.append(card)
-    } else {
       this._cardsContainer.prepend(card)
+    } else {
+      this._cardsContainer.append(card)
     }
   }
 }
