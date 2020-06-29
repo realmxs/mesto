@@ -2,6 +2,9 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 const openNewCardPopupButton = document.querySelector(
   ".open-newcard-popup-button"
 );
+const openAvatarPopupButton = document.querySelector(
+  ".profile__avatar-button"
+);
 
 const profileEditPopupElement = document.querySelector("#profile-edit-popup");
 const inputProfileTitle = profileEditPopupElement.querySelector(
@@ -11,6 +14,7 @@ const inputProfileSubtitle = profileEditPopupElement.querySelector(
   "#input-profile-subtitle"
 );
 
+const avatarPopupElement = document.querySelector("#avatar-popup");
 const newCardPopupElement = document.querySelector("#newcard-popup");
 
 const defaultCards = [
@@ -73,6 +77,10 @@ const profileSelectors = {
   subtitleInput: "input-profile-subtitle"
 };
 
+const avatarPopupSelectors = {
+  popup: "#avatar-popup"
+}
+
 export {
   profileEditButton,
   openNewCardPopupButton,
@@ -85,5 +93,8 @@ export {
   containerSelector,
   picPopupSelectors,
   newCardPopupSelectors,
-  profileSelectors
+  profileSelectors,
+  openAvatarPopupButton,
+  avatarPopupSelectors,
+  avatarPopupElement
 }

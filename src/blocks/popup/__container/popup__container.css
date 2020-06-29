@@ -1,7 +1,10 @@
+@import url('./_small/popup__container_small.css');
+@import url('./_medium/popup__container_medium.css');
+@import url('./_large/popup__container_large.css');
+
 .popup__container {
     position: relative;
     width: 430px;
-    height: 330px;
     background-color: white;
     display: flex;
     flex-direction: column;

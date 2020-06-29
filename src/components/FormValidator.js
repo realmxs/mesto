@@ -6,6 +6,7 @@ export default class FormValidator {
     this._showErrorClass = settings.showErrorClass;
 
     this._inputList = this._popup.querySelectorAll(settings.inputSelector);
+    console.log(this._inputList);
     this._submitButton = this._popup.querySelector(
       settings.submitButtonSelector
     );

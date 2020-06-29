@@ -18,7 +18,10 @@ import {
   containerSelector,
   picPopupSelectors,
   newCardPopupSelectors,
-  profileSelectors
+  profileSelectors,
+  openAvatarPopupButton,
+  avatarPopupSelectors,
+  avatarPopupElement
 } from "../utils/constants.js"
 
 const profileEditPopupValidator = new FormValidator(
@@ -27,6 +30,10 @@ const profileEditPopupValidator = new FormValidator(
 );
 const newCardPopupValidator = new FormValidator(
   newCardPopupElement,
+  validationSettings
+);
+const avatarPopupValidator = new FormValidator(
+  avatarPopupElement,
   validationSettings
 );
 
@@ -39,6 +46,11 @@ const profileEditPopup = new PopupWithForm(
   profileSelectors.popup,
   profileEditPopupSubmit
 );
+
+const avatarPopup = new PopupWithForm(
+  avatarPopupSelectors.popup,
+  profileEditPopupSubmit // поменять
+)
 const picPopup = new PopupWithImage(picPopupSelectors);
 const newCardPopup = new PopupWithForm(
   newCardPopupSelectors.popup,
@@ -94,10 +106,17 @@ function openCardPopup() {
   newCardPopup.openPopup();
 }
 
+function openAvatarPopup() {
+  avatarPopupValidator.clearFormErrors();
+  avatarPopup.openPopup();
+}
+
 profileEditButton.addEventListener("click", openProfilePopup);
 openNewCardPopupButton.addEventListener("click", openCardPopup);
+openAvatarPopupButton.addEventListener("click", openAvatarPopup);
 
 profileEditPopupValidator.enableValidation();
 newCardPopupValidator.enableValidation();
+avatarPopupValidator.enableValidation();
 
 cardsContainer.cardsRenderer();
