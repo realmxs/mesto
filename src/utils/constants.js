@@ -2,9 +2,7 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 const openNewCardPopupButton = document.querySelector(
   ".open-newcard-popup-button"
 );
-const openAvatarPopupButton = document.querySelector(
-  ".profile__avatar-button"
-);
+const openAvatarPopupButton = document.querySelector(".profile__avatar-button");
 
 const profileEditPopupElement = document.querySelector("#profile-edit-popup");
 const inputProfileTitle = profileEditPopupElement.querySelector(
@@ -17,33 +15,6 @@ const inputProfileSubtitle = profileEditPopupElement.querySelector(
 const avatarPopupElement = document.querySelector("#avatar-popup");
 const newCardPopupElement = document.querySelector("#newcard-popup");
 
-const defaultCards = [
-  {
-    title: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    title: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    title: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    title: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    title: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    title: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const validationSettings = {
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__submit-button",
@@ -53,33 +24,53 @@ const validationSettings = {
 };
 
 const containerSelector = {
-  container: ".cards-container"
+  container: ".cards-container",
 };
 
 const picPopupSelectors = {
   popup: "#pic-popup",
   imageTitle: ".popup__image-title",
-  image: ".popup__image"
+  image: ".popup__image",
 };
 
 const newCardPopupSelectors = {
   popup: "#newcard-popup",
   template: "#photo-card",
   title: "input-card-title",
-  link: "input-card-link"
+  link: "input-card-link",
 };
 
 const profileSelectors = {
-  title: ".profile__title",
+  name: ".profile__title",
   description: ".profile__subtitle",
   popup: "#profile-edit-popup",
   titleInput: "input-profile-title",
-  subtitleInput: "input-profile-subtitle"
+  subtitleInput: "input-profile-subtitle",
+  avatar: ".profile__avatar",
+};
+
+const profileElements = {
+  name: document.querySelector(profileSelectors.name),
+  description: document.querySelector(profileSelectors.description),
+  avatar: document.querySelector(profileSelectors.avatar),
+};
+
+const loginInfo = {
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-12",
+  headers: {
+    authorization: "246d132c-15dc-4567-a2e3-3aa37ea260d6",
+    "Content-Type": "application/json",
+  },
+};
+
+const deleteCardPopupSelectors = {
+  popup: "#delete-card-popup",
 };
 
 const avatarPopupSelectors = {
-  popup: "#avatar-popup"
-}
+  popup: "#avatar-popup",
+  input: "input-avatar-link",
+};
 
 export {
   profileEditButton,
@@ -88,7 +79,6 @@ export {
   inputProfileTitle,
   inputProfileSubtitle,
   newCardPopupElement,
-  defaultCards,
   validationSettings,
   containerSelector,
   picPopupSelectors,
@@ -96,5 +86,8 @@ export {
   profileSelectors,
   openAvatarPopupButton,
   avatarPopupSelectors,
-  avatarPopupElement
-}
+  avatarPopupElement,
+  profileElements,
+  loginInfo,
+  deleteCardPopupSelectors,
+};

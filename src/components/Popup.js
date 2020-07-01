@@ -11,7 +11,10 @@ export default class Popup {
   }
 
   _handleFormClose(evt) {
-    if (evt.target.classList.contains("popup") || evt.target.classList.contains("popup__close-button")) {
+    if (
+      evt.target.classList.contains("popup") ||
+      evt.target.classList.contains("popup__close-button")
+    ) {
       this.closePopup();
     }
   }
