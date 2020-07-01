@@ -55,12 +55,11 @@ export default class Card {
   }
 
   _like() {
-    if (!this._likeButton.classList.contains("card__like-button_clicked")) {
-      this._toggleLikeStatus();
+    this._toggleLikeStatus();
+    if (this._likeButton.classList.contains("card__like-button_clicked")) {
       this._setLike(this._cardId);
       this._likeCounter.textContent = this._likes.length += 1;
     } else {
-      this._toggleLikeStatus();
       this._removeLike(this._cardId);
       this._likeCounter.textContent = this._likes.length -= 1;
     }
