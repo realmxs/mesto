@@ -66,7 +66,7 @@ export default class Card {
   }
 
   _checkLike() {
-    if (this._likes.find((like) => like._id === this._myId)) {
+    if (this._likes.find((like) => like._id == this._myId)) {
       this._toggleLikeStatus();
     }
   }
