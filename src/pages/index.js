@@ -7,7 +7,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Api from "../components/Api.js";
-import DeletePopup from "../components/DeletePopup";
+import DeletePopup from "../components/DeletePopup.js";
 import {
   profileEditButton,
   openNewCardPopupButton,
@@ -70,6 +70,7 @@ function profileEditPopupSubmit(values) {
       description: values[profileSelectors.subtitleInput],
     })
     .then((data) => userInfo.setUserInfo(data))
+    .then(() => profileEditPopup.closePopup())
     .catch((error) => {
       console.log(error);
     })
@@ -85,12 +86,15 @@ function deleteCardPopupSubmit({ card, cardId }) {
   deleteCardPopup.loadingStatus(true);
   api
     .deleteCard(cardId)
+    .then(() => {
+      card.remove();
+      card = null;
+    })
+    .then(() => deleteCardPopup.closePopup())
     .catch((error) => {
       console.log(error);
     })
     .finally(() => deleteCardPopup.loadingStatus(false));
-  card.remove();
-  card = null;
 }
 
 const deleteCardPopup = new DeletePopup(
@@ -105,6 +109,7 @@ function avatarPopupSubmit(value) {
       avatar: value[avatarPopupSelectors.input],
     })
     .then((data) => userInfo.setUserInfo(data))
+    .then(() => avatarPopup.closePopup())
     .catch((error) => {
       console.log(error);
     })
@@ -155,6 +160,7 @@ function submitCardForm(values) {
       );
       cardsContainer.addCard(card.getCardElement());
     })
+    .then(() => newCardPopup.closePopup())
     .catch((error) => {
       console.log(error);
     })

@@ -12,7 +12,6 @@ export default class DeletePopup extends Popup {
   _popupSubmit(evt) {
     evt.preventDefault();
     this._formSubmit({ card: this._card, cardId: this._cardId });
-    this.closePopup();
   }
 
   _setEventListeners() {
@@ -31,7 +30,6 @@ export default class DeletePopup extends Popup {
       this._submitButton.textContent = "Удаление...";
     } else {
       this._submitButton.textContent = "Да";
-      this.closePopup();
     }
   }
 }
