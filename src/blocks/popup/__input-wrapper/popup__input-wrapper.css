@@ -1,7 +1,0 @@
-.popup__input-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 13px;
-  height: 44px;
-}
