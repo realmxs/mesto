@@ -46,14 +46,13 @@ function App() {
       <Header />
       <Main editAvatar={handleAvatarClick} editProfile={handleEditProfileClick} addPlace={handleAddCardClick} showPic={openPicPopup} />
       <Footer />
-      <PopupWithForm isOpen={isAvatarPopupOpen} id="avatar-popup" size="medium" title="Обновить аватар" close={closePopup}>
+      <PopupWithForm isOpen={isAvatarPopupOpen} id="avatar-popup" size="medium" title="Обновить аватар" close={closePopup} submitButtonText="Обновить">
         <div className="popup__input-wrapper">
           <input type="url" placeholder="Ссылка на изображение" className="popup__input" id="input-avatar-link" required />
           <span className="popup__error-text" id="input-avatar-link-error"></span>
         </div>
-        <button className="popup__submit-button" type="submit">Да</button>
       </PopupWithForm>
-      <PopupWithForm isOpen={isEditProfilePopupOpen} id="profile-edit-popup" size="large" title="Изменить данные" close={closePopup}>
+      <PopupWithForm isOpen={isEditProfilePopupOpen} id="profile-edit-popup" size="large" title="Изменить данные" close={closePopup} submitButtonText="Сохранить">
         <fieldset className="popup__fieldset">
           <div className="popup__input-wrapper">
             <input type="text" placeholder="Имя" type="text" className="popup__input" id="input-profile-title" minLength="2" maxLength="40" pattern="[A-Za-zА-Яа-яЁё\s\-]{1,}" required />
@@ -64,9 +63,8 @@ function App() {
             <span className="popup__error-text" id="input-profile-subtitle-error"></span>
           </div>
         </fieldset>
-        <button className="popup__submit-button" type="submit">Сохранить</button>
       </PopupWithForm>
-      <PopupWithForm isOpen={isAddCardPopupOpen} id="newcard-popup" size="large" title="Добавить место" close={closePopup}>
+      <PopupWithForm isOpen={isAddCardPopupOpen} id="newcard-popup" size="large" title="Добавить место" close={closePopup} submitButtonText="Добавить">
         <fieldset className="popup__fieldset">
           <div className="popup__input-wrapper">
             <input type="text" placeholder="Название" type="text" className="popup__input" id="input-card-title" minLength="1" maxLength="30" required />
@@ -77,7 +75,6 @@ function App() {
             <span className="popup__error-text" id="input-card-link-error"></span>
           </div>
         </fieldset>
-        <button className="popup__submit-button popup__submit-button_inactive" type="submit" disabled>Создать</button>
       </PopupWithForm>
       <PopupWithImage isOpen={selectedCard} close={closePopup} cardInfo={imageInfo} />
     </>
