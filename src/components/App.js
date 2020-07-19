@@ -37,7 +37,6 @@ function App() {
   }
 
   const openPicPopup = (card) => {
-    console.log(card);
     handleCardClick();
     setImageInfo(card);
   }

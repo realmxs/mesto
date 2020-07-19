@@ -80,5 +80,4 @@ class Api {
   }
 }
 
-console.log(loginInfo)
 export const api = new Api(loginInfo)
