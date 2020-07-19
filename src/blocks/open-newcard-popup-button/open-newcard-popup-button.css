@@ -1,0 +1,25 @@
+.open-newcard-popup-button {
+    background-image: url('../../images/open-newcard-popup-button.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+    border-radius: 2px;
+    align-self: center;
+    padding: 0;
+    cursor: pointer;
+    height: 50px;
+    width: 150px;
+    box-sizing: border-box;
+    transition: 0.2s linear;
+  }
+
+  .open-newcard-popup-button:hover {
+    opacity: 0.55;
+  }
+
+  @media screen and (max-width: 400px) {
+    .open-newcard-popup-button {
+      width: 280px;
+    }
+  }

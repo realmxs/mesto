@@ -1,0 +1,15 @@
+@import url('./__image/card__image.css');
+@import url('./__info/card__info.css');
+@import url('./__title/card__title.css');
+@import url('./__delete-button/card__delete-button.css');
+@import url('./__like-button/card__like-button.css');
+@import url('./__like-button/__clicked/like-button_clicked.css');
+@import url('./__like-wrapper/card__like-wrapper.css');
+@import url('./__like-counter/card__like-counter.css');
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
