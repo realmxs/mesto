@@ -1,0 +1,16 @@
+@import url('./vendor/normalize.css');
+@import url('./vendor/fonts/inter.css');
+@import url('./blocks/open-newcard-popup-button/open-newcard-popup-button.css');
+@import url('./blocks/content/content.css');
+@import url('./blocks/card/card.css');
+@import url('./blocks/cards-container/cards-container.css');
+@import url('./blocks/footer/footer.css');
+@import url('./blocks/header/header.css');
+@import url('./blocks/logo/logo.css');
+@import url('./blocks/page/page.css');
+@import url('./blocks/popup/popup.css');
+@import url('./blocks/popup/__error-text/_show/popup__error-text_show.css');
+@import url('./blocks/popup/_opened/popup_opened.css');
+@import url('./blocks/card/__delete-button/_visiable/card__delete-button_visiable.css');
+@import url('./blocks/popup/__submit-button/_inactive/popup__submit-button_inactive.css');
+@import url('./blocks/profile/profile.css');
