@@ -1,5 +1,5 @@
 ## Проект Место
-GH Pages: [GH Pages] (https://realmxs.github.io/mesto/)
+GH Pages: [GH Pages](https://realmxs.github.io/mesto/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
