@@ -8,7 +8,7 @@ function Card(props) {
   return (
     <div className="card">
       <img onClick={clickOnCard} className="card__image" alt="фото" src={card.link} />
-      <button className="card__delete-button card__delete-button_visiable 123"></button>
+      <button className="card__delete-button card__delete-button_visiable"></button>
       <div className="card__info">
         <h2 className="card__title">{card.name}</h2>
         <div className="card__like-wrapper">
