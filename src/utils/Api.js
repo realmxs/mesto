@@ -4,7 +4,6 @@ class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
-    console.log(this._baseUrl)
   }
 
   _response(res) {
