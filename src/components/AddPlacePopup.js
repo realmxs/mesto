@@ -8,6 +8,8 @@ function AddPlacePopup(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.onAddPlace(nameRef.current.value, linkRef.current.value);
+    nameRef.current.value = '';
+    linkRef.current.value = '';
   }
 
   return (
