@@ -36,7 +36,7 @@ function Main(props) {
 
       <section className="cards-container">
         {props.cards.map((card) => (
-          <Card key={card._id} card={card} click={props.showPic} onCardLike={props.handleCardLike} onCardDelete={props.handleCardDelete}/>
+          <Card key={card._id} card={card} click={props.showPic} onCardLike={props.handleCardLike} onCardDelete={props.handleCardDelete} />
         ))}
       </section>
     </main>
