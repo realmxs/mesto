@@ -26,7 +26,7 @@ class Api {
     }).then(this._response);
   }
 
-  updateUserInfo({ name, description }) {
+  updateUserInfo(name, description) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -37,7 +37,7 @@ class Api {
     }).then(this._response);
   }
 
-  addNewCard({ title, link }) {
+  addNewPlace(title, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
@@ -55,21 +55,15 @@ class Api {
     }).then(this._response);
   }
 
-  setLike(cardId) {
+  changeCardLikeStatus(cardId, isLiked) {
+    let methodName = (isLiked === true ? 'PUT' : 'DELETE')
     return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-      method: "PUT",
+      method: methodName,
       headers: this._headers,
-    }).then(this._response);
+    }).then(this._response)
   }
 
-  removeLike(cardId) {
-    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._response);
-  }
-
-  setUserAvatar({ avatar }) {
+  setUserAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
