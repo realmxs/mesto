@@ -23,9 +23,10 @@ function EditProfilePopup(props) {
     setDescription(evt.target.value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(evt) {
+    evt.preventDefault();
     props.onUserUpdate(name, description);
+    evt.target.reset();
   }
 
   return (

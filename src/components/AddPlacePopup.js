@@ -5,11 +5,10 @@ function AddPlacePopup(props) {
   const nameRef = React.useRef();
   const linkRef = React.useRef();
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function handleSubmit(evt) {
+    evt.preventDefault();
     props.onAddPlace(nameRef.current.value, linkRef.current.value);
-    nameRef.current.value = '';
-    linkRef.current.value = '';
+    evt.target.reset();
   }
 
   return (
