@@ -38,7 +38,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, [cards]);
+  }, []);
 
   function handleAvatarClick() {
     setAvatarPopupOpen(true);
@@ -91,7 +91,7 @@ function App() {
 
   function handleAddNewPlace(name, link) {
     api.addNewPlace(name, link).then((newCard) => {
-      setCards([...cards, newCard]);
+      setCards([newCard, ...cards]);
       closePopup()
     });
   }
@@ -106,9 +106,9 @@ function App() {
 
   function handleCardDelete(card) {
     api.deleteCard(card._id).then(() => {
-      const newCards = cards.filter(c => {
-        return card._id !== c._id;
-      });
+      const newCards = cards.filter(c =>
+        card._id !== c._id
+      );
       setCards(newCards);
     });
   }
