@@ -76,8 +76,11 @@ function App() {
         about: data.about
       });
       closePopup()
-    });
-  }
+    }).catch((err) => {
+      console.log(err);
+  })
+}
+    
 
   function handleAvatarUpdate(link) {
     api.setUserAvatar(link).then((data) => {
@@ -86,32 +89,40 @@ function App() {
         avatar: data.avatar
       });
       closePopup()
-    });
-  }
+    }).catch((err) => {
+      console.log(err);
+  })
+}
 
   function handleAddNewPlace(name, link) {
     api.addNewPlace(name, link).then((newCard) => {
       setCards([newCard, ...cards]);
       closePopup()
-    });
-  }
+    }).catch((err) => {
+      console.log(err);
+  })
+}
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api.changeCardLikeStatus(card._id, !isLiked).then((newCard) => {
       const newCards = cards.map(c => c._id === card._id ? newCard : c);
       setCards(newCards);
-    });
-  }
+    }).catch((err) => {
+      console.log(err);
+  })
+}
 
   function handleCardDelete(card) {
     api.deleteCard(card._id).then(() => {
       const newCards = cards.filter(c =>
         card._id !== c._id
-      );
+      )
       setCards(newCards);
-    });
-  }
+    }).catch((err) => {
+      console.log(err);
+  })
+}
 
   return (
     <>
