@@ -1,0 +1,7 @@
+@import url('./_text/form__signin_text.css');
+@import url('./_link/form__signin_link.css');
+
+.form__signin {
+  display: flex;
+  flex-direction: row;
+}

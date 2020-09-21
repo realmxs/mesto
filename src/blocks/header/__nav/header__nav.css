@@ -1,0 +1,7 @@
+@import url('./header__nav_email/header__nav_email.css');
+@import url('./header__nav_button/header__nav_button.css');
+
+.header__nav {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,22 @@
+.form__input {
+  width: 100%;
+  margin: 0;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: black;
+  border: none;
+  border-bottom: 2px solid #CCCCCC;
+  padding-bottom: 13px;
+  color: #CCCCCC;
+  outline: none;
+}
+
+.form__input:first-of-type {
+  margin-bottom: 30px;
+}
+.form__input::placeholder {
+  color: #CCCCCC;
+}

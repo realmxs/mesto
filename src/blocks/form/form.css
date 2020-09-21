@@ -1,0 +1,16 @@
+@import url('./__title/form__title.css');
+@import url('./__fieldset/form__fieldset.css');
+@import url('./__input/form__input.css');
+@import url('./__submit/form__submit.css');
+@import url('./__signin/form__signin.css');
+
+.form {
+  width: 360px;
+  margin: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
