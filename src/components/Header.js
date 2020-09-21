@@ -1,24 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../images/logo.svg';
 
-function Header({ loggedIn, userEmail, isSigninFormOpen, logout }) {
+function Header(props) {
   return (
     <header className="header">
-      <img className="logo" src={logo} alt="Mesto Russia" lang="en" />
-      {loggedIn ?
-        <div className="header__nav">
-          <p className="header__nav_email">{userEmail}</p>
-          <Link className="header__nav_button" to="/signin" onClick={logout}>Выйти</Link>
-        </div> :
-        <div className="header__nav">
-          <Link className="header__nav_button" to={isSigninFormOpen ? "/signup" : "/signin"}>
-            {isSigninFormOpen ? "Регистрация" : "Войти"}
-          </Link>
-        </div>
-      }
+      <a href="https://realmxs.github.io/mesto-react/">
+        <img className="logo" src={logo} alt="Mesto Russia" lang="en" />
+      </a>
     </header>
-  )
+  );
 }
 
-export default Header;
+export default Header

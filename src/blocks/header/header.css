@@ -1,16 +1,12 @@
 @import url('./__line/header__line.css');
-@import url('./__nav/header__nav.css');
 
 .header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     max-width: 880px;
     margin: 0 auto 40px;
     padding-top: 45px;
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-
-
   }
 
   @media screen and (max-width: 980px) {
